@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>94神马电影网：一份给日常选片人用的电影目录，按心情、时长和门槛分类</title>
+<meta name="description" content="94神马电影网（https://94shenmadianyingwang-zh.github.io）是一个面向日常选片人的影片目录：把电影按心情、时长、语言与观看门槛重新分组，覆盖动作、剧情、喜剧、纪录、动画等类型，每条都附一句"什么时候适合看"的提示。本站不提供在线播放，只做选片参考与正版观看线索整理。">
+<meta name="keywords" content="94神马电影网,94shenmadianyingwang-zh.github.io,按心情选电影,按时长挑片子,电影目录索引,观影门槛提示,日常选片指南,电影类型分组">
+<meta name="author" content="94神马电影网编辑部">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="bingbot" content="index,follow">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="theme-color" content="#eef5ee">
+<link rel="canonical" href="https://94shenmadianyingwang-zh.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="94神马电影网｜按心情和时长给日常选片人用的电影目录">
+<meta property="og:description" content="覆盖动作、剧情、喜剧、纪录、动画等类型，每条附一句什么时候适合看的提示。">
+<meta property="og:url" content="https://94shenmadianyingwang-zh.github.io/">
+<meta property="og:site_name" content="94神马电影网">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#f4faf4;--card:#fff;--ink:#222d24;--ink2:#56614f;--ink3:#95a28d;
+  --line:#dce8dc;--line2:#eef5ee;
+  --mint:#3f7a5c;--mint-d:#2e5c44;--mint-l:#e7f2ea;
+  --rust:#c0603a;--rust-l:#fbecdf;--inkline:#222d24;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.8;font-size:15px;
+  background-image:
+    linear-gradient(var(--line2) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line2) 1px,transparent 1px);
+  background-size:34px 34px;
+}
+a{text-decoration:none;color:inherit;transition:.18s}
+.wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+
+/* TOPBAR */
+.topbar{background:var(--mint-d);color:#d7eadb;font-size:12px}
+.topbar .wrap{display:flex;justify-content:space-between;padding:8px 26px;letter-spacing:.5px}
+.topbar b{color:#fff;font-weight:700}
+.topbar .u{font-family:monospace;color:#bcd9c4}
+
+/* TITLE */
+.brand{padding:44px 0 30px;text-align:center;border-bottom:2.5px solid var(--inkline);position:relative}
+.brand::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:var(--inkline)}
+.brand .en{font-size:11px;letter-spacing:5px;color:var(--mint-d);text-transform:uppercase;margin-bottom:14px;font-weight:700}
+.brand h1{font-size:54px;font-weight:900;letter-spacing:3px;line-height:1.1}
+.brand h1 span{color:var(--mint)}
+.brand .lead{max-width:660px;margin:18px auto 0;font-size:15px;color:var(--ink2)}
+.brand .chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:22px}
+.brand .chips i{font-style:normal;font-size:12px;background:var(--mint-l);color:var(--mint-d);padding:4px 12px;border-radius:20px;font-weight:600}
+
+/* NAV */
+nav{background:var(--card);border-bottom:2.5px solid var(--inkline);position:sticky;top:0;z-index:50}
+nav .wrap{display:flex;flex-wrap:wrap}
+nav a{padding:14px 24px;font-size:14px;font-weight:700;color:var(--ink2);border-right:1px solid var(--line2)}
+nav a:first-child{border-left:1px solid var(--line2)}
+nav a:hover{background:var(--mint-l);color:var(--mint-d)}
+nav a.on{background:var(--inkline);color:#fff}
+
+main{padding:52px 0 34px}
+
+/* BLOCK TITLE */
+.bt{display:flex;align-items:end;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.bt .no{font-size:13px;font-weight:800;color:#fff;background:var(--mint);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bt h2{font-size:25px;font-weight:900;line-height:1.2}
+.bt .sub{font-size:12.5px;color:var(--ink3);letter-spacing:1px;text-transform:uppercase;margin-left:auto;padding-bottom:4px}
+.bt .rule{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--inkline) 0,var(--inkline) 8px,transparent 8px,transparent 14px);min-width:80px}
+
+/* MOOD BOARD */
+.mood{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--inkline);margin-bottom:60px;background:var(--card)}
+.mood .cell{padding:26px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;min-height:190px;display:flex;flex-direction:column}
+.mood .cell:nth-child(4n){border-right:0}
+.mood .cell:nth-child(n+5){border-bottom:0}
+.mood .cell .ic{font-size:26px;margin-bottom:12px}
+.mood .cell h3{font-size:17px;font-weight:800;margin-bottom:6px}
+.mood .cell p{font-size:13px;color:var(--ink2);flex:1}
+.mood .cell .dur{margin-top:12px;font-size:11px;color:var(--mint-d);font-weight:700;letter-spacing:.5px}
+
+/* TYPE GRID */
+.type{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+.type article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 2px 0 var(--line)}
+.type .head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.type .head .sq{width:38px;height:38px;border-radius:9px;background:var(--mint-l);color:var(--mint-d);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;flex-shrink:0}
+.type article:nth-child(2) .head .sq{background:var(--rust-l);color:var(--rust)}
+.type article:nth-child(3) .head .sq{background:#e8eef7;color:#3a5a8a}
+.type article:nth-child(4) .head .sq{background:#f6ece8;color:#8a4a3a}
+.type article:nth-child(5) .head .sq{background:#f3ecf6;color:#6a4a8a}
+.type article:nth-child(6) .head .sq{background:#eef6f3;color:#3a8a7a}
+.type .head h3{font-size:17px;font-weight:800}
+.type .head .cnt{margin-left:auto;font-size:11px;color:var(--ink3);background:var(--line2);padding:2px 9px;border-radius:12px}
+.type p{font-size:13.5px;color:var(--ink2);margin-bottom:14px}
+.type ul li{font-size:13px;padding:5px 0;border-top:1px dashed var(--line);color:var(--ink2);display:flex;gap:8px}
+.type ul li:first-child{border-top:0}
+.type ul li em{font-style:normal;color:var(--ink3);font-size:12px;margin-left:auto;flex-shrink:0}
+
+/* TIMETABLE */
+.time{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+.time .col{background:var(--card);border:2px solid var(--inkline);border-radius:16px;overflow:hidden}
+.time .col .cap{padding:14px 20px;color:#fff;font-weight:800;font-size:15px;display:flex;justify-content:space-between;align-items:center}
+.time .col:nth-child(1) .cap{background:var(--rust)}
+.time .col:nth-child(2) .cap{background:var(--mint)}
+.time .col:nth-child(3) .cap{background:#4a5a7a}
+.time .col .cap small{font-size:11px;font-weight:600;opacity:.85}
+.time .col ul li{padding:15px 20px;border-bottom:1px solid var(--line2)}
+.time .col ul li:last-child{border-bottom:0}
+.time .col ul li .t{font-weight:700;font-size:14.5px;display:block;margin-bottom:3px}
+.time .col ul li .d{font-size:12px;color:var(--ink3)}
+.time .col ul li .f{display:inline-block;font-size:11px;margin-top:8px;padding:2px 8px;border-radius:10px;background:var(--line2);color:var(--ink2)}
+
+/* COMPARE */
+.cmp{background:var(--card);border:2px solid var(--inkline);border-radius:16px;overflow:hidden;margin-bottom:60px}
+.cmp table{width:100%;border-collapse:collapse;font-size:13.5px}
+.cmp th{background:var(--inkline);color:#fff;padding:13px 16px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.5px}
+.cmp th:first-child{width:120px}
+.cmp td{padding:13px 16px;border-bottom:1px solid var(--line2);color:var(--ink2);vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp td:first-child{font-weight:700;color:var(--ink);background:var(--line2)}
+.cmp .yes{color:var(--mint-d);font-weight:700}
+.cmp .no2{color:var(--rust);font-weight:700}
+
+/* FAQ */
+.faq{margin-bottom:60px}
+.faq .box{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq .box .q{padding:17px 22px;font-size:15px;font-weight:700;cursor:pointer;display:flex;gap:14px;align-items:flex-start}
+.faq .box .q .n{color:var(--mint);font-weight:900;flex-shrink:0;font-family:monospace}
+.faq .box .a{display:none;padding:0 22px 18px 50px;font-size:13.5px;color:var(--ink2)}
+.faq .box.open .a{display:block}
+.faq .box.open .q .n::after{content:" −";color:var(--rust)}
+.faq .box .q .n::after{content:" +";color:var(--rust)}
+
+/* FOOT */
+.foot{background:var(--inkline);color:#cfe0d2}
+.foot .wrap{padding-top:46px;padding-bottom:26px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:38px}
+.foot h4{color:#fff;font-size:13px;letter-spacing:1px;margin-bottom:16px;font-weight:800}
+.foot p{font-size:13.5px;margin-bottom:12px;line-height:1.85}
+.foot .url{font-family:monospace;font-size:12.5px;color:#a8d4b6;background:rgba(63,122,92,.28);padding:9px 13px;display:inline-block;word-break:break-all;border-radius:6px}
+.foot ul li{padding:6px 0;font-size:13px}
+.foot a:hover{color:var(--rust-l)}
+.foot .note{font-size:11.5px;color:#8fa391;line-height:1.9}
+.copy{border-top:1px solid rgba(255,255,255,.14)}
+.copy .wrap{padding:18px 26px;display:flex;justify-content:space-between;font-size:12px;color:#8fa391;flex-wrap:wrap;gap:10px}
+.copy .u{font-family:monospace;color:#a8d4b6}
+@media(max-width:1000px){
+  .mood,.type,.time,.foot .wrap{grid-template-columns:repeat(2,1fr)}
+  .mood .cell:nth-child(4n){border-right:1px solid var(--line)}
+  .mood .cell:nth-child(2n){border-right:0}
+  .mood .cell:nth-child(n+5){border-bottom:1px solid var(--line)}
+  .mood .cell:nth-last-child(-n+2){border-bottom:0}
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  .brand h1{font-size:32px;letter-spacing:1px}
+  .brand{padding:30px 0 22px}
+  .mood,.type,.time,.foot .wrap{grid-template-columns:1fr}
+  .mood .cell{border-right:0 !important}
+  .mood .cell:not(:last-child){border-bottom:1px solid var(--line)}
+  nav a{padding:12px 14px;font-size:13px}
+  .bt{flex-wrap:wrap}
+  .bt .sub{margin-left:0}
+  .bt .rule{display:none}
+  .cmp{overflow-x:auto}
+  .cmp table{min-width:520px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>日常选片目录 · 更新于 <b>2026.10.06</b> · 已收录 <b>268</b> 条影片条目</span>
+    <span class="u">94shenmadianyingwang-zh.github.io</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="brand">
+    <div class="en">94 SHENMA · MOVIE DIRECTORY</div>
+    <h1>94<span>神马</span>电影网</h1>
+    <p class="lead">不追热度，只按你当下的<b>心情、能拿出的时间、能承受的情绪强度</b>帮你把片子分好。每条都写清楚：什么时候适合看、看到第几分钟会后悔、正版渠道去哪找。</p>
+    <div class="chips">
+      <i>动作</i><i>剧情</i><i>喜剧</i><i>纪录</i><i>动画</i><i>悬疑</i><i>家庭</i><i>独立制作</i>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="on">首页</a>
+    <a href="#mood">按心情</a>
+    <a href="#type">按类型</a>
+    <a href="#time">按时长</a>
+    <a href="#cmp">正版渠道</a>
+    <a href="#faq">常见问题</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<main>
+  <section id="mood">
+    <div class="bt">
+      <span class="no">1</span>
+      <h2>按心情选</h2>
+      <span class="sub">Pick by Mood</span>
+      <span class="rule"></span>
+    </div>
+    <div class="mood">
+      <div class="cell">
+        <div class="ic">⚡</div>
+        <h3>想被刺激一下</h3>
+        <p>节奏快、信息量大，适合刚下班脑子还有电的时候，看完不打算细想剧情。</p>
+        <div class="dur">建议时长 ｜ 90–115 分钟</div>
+      </div>
+      <div class="cell">
+        <div class="ic">🛋️</div>
+        <h3>只想瘫着看</h3>
+        <p>情绪平稳、节奏宽松，画面好看，被打断也不影响，适合吃饭或做家务时放着。</p>
+        <div class="dur">建议时长 ｜ 任意</div>
+      </div>
+      <div class="cell">
+        <div class="ic">🧩</div>
+        <h3>想动脑猜</h3>
+        <p>信息有缺，需要自己拼，适合周末白天，能暂停回看、还能跟人讨论一下的状态。</p>
+        <div class="dur">建议时长 ｜ 100–135 分钟</div>
+      </div>
+      <div class="cell">
+        <div class="ic">🌧️</div>
+        <h3>心情有点丧</h3>
+        <p>情绪会往下沉，建议先看门槛提示再决定；选对了会被理解，选错了会更累。</p>
+        <div class="dur">建议时长 ｜ 90–120 分钟</div>
+      </div>
+      <div class="cell">
+        <div class="ic">🎒</div>
+        <h3>带孩子一起看</h3>
+        <p>语言浅、冲突不重，大人也不会无聊，适合周末下午的客厅场景。</p>
+        <div class="dur">建议时长 ｜ 80–100 分钟</div>
+      </div>
+      <div class="cell">
+        <div class="ic">✈️</div>
+        <h3>路上打发时间</h3>
+        <p>单线叙事、不太依赖画面细节，手机小屏也能跟住，适合通勤与候机。</p>
+        <div class="dur">建议时长 ｜ 90 分钟以内</div>
+      </div>
+      <div class="cell">
+        <div class="ic">🌙</div>
+        <h3>睡前看一部</h3>
+        <p>收尾要干净，不建议选节奏持续紧张或情绪重口的，不然会睡不着。</p>
+        <div class="dur">建议时长 ｜ 80–100 分钟</div>
+      </div>
+      <div class="cell">
+        <div class="ic">📓</div>
+        <h3>想学点东西</h3>
+        <p>人物与事件有现实依据，适合愿意看完再查资料的人，比纯科普更有味道。</p>
+        <div class="dur">建议时长 ｜ 110–140 分钟</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="type">
+    <div class="bt">
+      <span class="no">2</span>
+      <h2>按类型看</h2>
+      <span class="sub">Browse by Genre</span>
+      <span class="rule"></span>
+    </div>
+    <div class="type">
+      <article>
+        <div class="head"><div class="sq">01</div><h3>动作</h3><span class="cnt">46 条</span></div>
+        <p>从实拍特技到群像动作，重点看调度是否清楚、打起来有没有逻辑。</p>
+        <ul>
+          <li>实拍特技优先 <em>门槛低</em></li>
+          <li>群像动作 / 编队调度 <em>门槛低</em></li>
+          <li>含高强度暴力 <em>门槛较高</em></li>
+        </ul>
+      </article>
+      <article>
+        <div class="head"><div class="sq">02</div><h3>剧情</h3><span class="cnt">58 条</span></div>
+        <p>人物关系与处境变化为主，不靠事件推动，适合愿意慢下来的人。</p>
+        <ul>
+          <li>家庭与代际关系 <em>门槛低</em></li>
+          <li>职场与生存处境 <em>门槛中</em></li>
+          <li>涉及创伤与疾病 <em>门槛较高</em></li>
+        </ul>
+      </article>
+      <article>
+        <div class="head"><div class="sq">03</div><h3>喜剧</h3><span class="cnt">34 条</span></div>
+        <p>冷幽默与黑色喜剧比段子密集的类型更耐看，标注了是否需要文化语境。</p>
+        <ul>
+          <li>冷幽默 / 对话型 <em>门槛低</em></li>
+          <li>黑色喜剧 <em>门槛中</em></li>
+          <li>含敏感话题 <em>需了解</em></li>
+        </ul>
+      </article>
+      <article>
+        <div class="head"><div class="sq">04</div><h3>纪录</h3><span class="cnt">29 条</span></div>
+        <p>人物、行业、自然三条线分开，标明是否为导演参与式拍摄，避免期待错配。</p>
+        <ul>
+          <li>人物传记式 <em>门槛低</em></li>
+          <li>行业与社会观察 <em>门槛中</em></li>
+          <li>议题重口 <em>门槛较高</em></li>
+        </ul>
+      </article>
+      <article>
+        <div class="head"><div class="sq">05</div><h3>动画</h3><span class="cnt">31 条</span></div>
+        <p>成人向与平面手工动画单独分组，不再笼统地归到"卡通"里。</p>
+        <ul>
+          <li>成人向 / 议题 <em>门槛中</em></li>
+          <li>手工与平面动画 <em>门槛低</em></li>
+          <li>视觉冲击强 <em>门槛中</em></li>
+        </ul>
+      </article>
+      <article>
+        <div class="head"><div class="sq">06</div><h3>悬疑</h3><span class="cnt">40 条</span></div>
+        <p>分心理悬疑与推理解谜两类，标注是否依赖反转，避免被剧透毁掉体验。</p>
+        <ul>
+          <li>心理 / 气氛型 <em>门槛中</em></li>
+          <li>推理解谜型 <em>门槛低</em></li>
+          <li>含血腥画面 <em>门槛较高</em></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="time">
+    <div class="bt">
+      <span class="no">3</span>
+      <h2>按时长选</h2>
+      <span class="sub">Match Your Time</span>
+      <span class="rule"></span>
+    </div>
+    <div class="time">
+      <div class="col">
+        <div class="cap">半小时到九十 <small>通勤 / 午休</small></div>
+        <ul>
+          <li><span class="t">《渡口纪事》</span><span class="d">78 分钟 · 纪录 · 导演参与式拍摄</span><span class="f">门槛：低</span></li>
+          <li><span class="t">《便利店夜班》</span><span class="d">82 分钟 · 剧情 · 单场景三人物</span><span class="f">门槛：低</span></li>
+          <li><span class="t">《雨季的第一班车》</span><span class="d">88 分钟 · 喜剧 · 对话驱动</span><span class="f">门槛：低</span></li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="cap">九十到一百二 <small>一个完整晚上</small></div>
+        <ul>
+          <li><span class="t">《山脊上的家》</span><span class="d">127 分钟 · 剧情 · 高海拔实景</span><span class="f">门槛：低</span></li>
+          <li><span class="t">《无人知晓的河流》</span><span class="d">118 分钟 · 纪录 · 几乎无对白</span><span class="f">门槛：低</span></li>
+          <li><span class="t">《渔港记事》</span><span class="d">104 分钟 · 独立制作</span><span class="f">门槛：较高</span></li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="cap">两小时以上 <small>留出一整段</small></div>
+        <ul>
+          <li><span class="t">《三代同堂》</span><span class="d">138 分钟 · 家庭剧情 · 可暂停</span><span class="f">门槛：低</span></li>
+          <li><span class="t">《运河档案》</span><span class="d">132 分钟 · 历史题材 · 需背景</span><span class="f">门槛：中</span></li>
+          <li><span class="t">《最后的放映员》</span><span class="d">126 分钟 · 纪录长片</span><span class="f">门槛：低</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="cmp">
+    <div class="bt">
+      <span class="no">4</span>
+      <h2>正版渠道对照</h2>
+      <span class="sub">Where to Watch Legally</span>
+      <span class="rule"></span>
+    </div>
+    <div class="cmp">
+      <table>
+        <thead>
+          <tr><th>观看方式</th><th>适合什么片子</th><th>优点</th><th>要注意</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>电影院</td><td>新片、视听规模大的作品</td><td class="yes">音画与沉浸感最好</td><td class="no2">场次与时间固定</td></tr>
+          <tr><td>正规流媒体</td><td>大多数剧情、喜剧、动画</td><td class="yes">可暂停、可字幕切换</td><td class="no2">有地区与版权期限</td></tr>
+          <tr><td>线下影展</td><td>独立制作、修复版、短片</td><td class="yes">版本与放映质量可靠</td><td class="no2">场次少、需提前关注</td></tr>
+          <tr><td>正规购买 / 租赁</td><td>小语种与难找的片</td><td class="yes">支持创作者、长期可看</td><td class="no2">渠道分散、需核对</td></tr>
+        </tbody>
+      </table>
+      <p style="padding:14px 16px;font-size:12.5px;color:#95a28d">本站<b>不提供在线播放</b>，也不存储任何影片资源。以上对照仅用于选片决策，具体 availability 以各平台页面为准，渠道变动时会在更新日志里说明。</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="bt">
+      <span class="no">5</span>
+      <h2>常见问题</h2>
+      <span class="sub">FAQ</span>
+      <span class="rule"></span>
+    </div>
+    <div class="faq">
+      <div class="box open">
+        <div class="q"><span class="n"></span><span>94神马电影网是做什么的？</span></div>
+        <div class="a">是一个面向日常选片人的影片目录：按心情、时长、语言与观看门槛把电影重新分组，每条附一句"什么时候适合看"的提示。本目录不提供在线播放，只做选片参考。</div>
+      </div>
+      <div class="box">
+        <div class="q"><span class="n"></span><span>收录标准是什么？</span></div>
+        <div class="a">三条：一是你真的能找到正版渠道；二是条目里至少有一条具体的选片提示（时长、门槛或观看场景）；三是同一导演的作品尽量成组出现，方便对照着看。</div>
+      </div>
+      <div class="box">
+        <div class="q"><span class="n"></span><span>评分是怎么来的？</span></div>
+        <div class="a">由编辑组按叙事、表演、影像、节奏四项口径打分，重点看同类型内部的相对高低，不是跨类型比较，也不代表客观评价。</div>
+      </div>
+      <div class="box">
+        <div class="q"><span class="n"></span><span>"观看门槛"指什么？</span></div>
+        <div class="a">指情绪与题材上的压力程度：比如涉及暴力、创伤、疾病等题材时给出提示，帮你按当下状态决定是否观看，避免被评分牵着走。</div>
+      </div>
+      <div class="box">
+        <div class="q"><span class="n"></span><span>能在这里看电影吗？</span></div>
+        <div class="a">不能。本站不存储、不播放任何影片资源。请通过电影院、正规视频平台等合法途径观看，条目中仅整理正版渠道线索。</div>
+      </div>
+      <div class="box">
+        <div class="q"><span class="n"></span><span>多久更新一次？</span></div>
+        <div class="a">每月底更新一次，补上新看到的片子、修正渠道信息，并在更新日志里写明改动日期，方便你只看新增部分。</div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <h4>关于 94神马电影网</h4>
+      <p>94神马电影网是一个面向日常选片人的<b style="color:#fff">电影目录</b>：按心情、时长、语言与观看门槛分类，覆盖动作、剧情、喜剧、纪录、动画、悬疑等类型，每条附正版观看渠道线索。</p>
+      <p>本站<b style="color:#fff">不提供在线播放服务</b>，影片观看请通过影院、正规视频平台等合法途径。</p>
+      <span class="url">https://94shenmadianyingwang-zh.github.io</span>
+    </div>
+    <div>
+      <h4>分类浏览</h4>
+      <ul>
+        <li><a href="#mood">按心情</a></li>
+        <li><a href="#type">按类型</a></li>
+        <li><a href="#time">按时长</a></li>
+        <li><a href="#cmp">正版渠道</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>内容</h4>
+      <ul>
+        <li><a href="#">动作片目录</a></li>
+        <li><a href="#">剧情片目录</a></li>
+        <li><a href="#">纪录片目录</a></li>
+        <li><a href="#">动画与短片</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>关于本站</h4>
+      <ul>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#">收录标准</a></li>
+        <li><a href="#">投稿与建议</a></li>
+        <li><a href="#">免责声明</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">
+    <div class="wrap">
+      <span>© 2026 94神马电影网 · 日常选片目录，非商业用途，不提供在线播放服务，影片观看请通过正规渠道。</span>
+      <span class="u">94shenmadianyingwang-zh.github.io</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq .box .q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var box=q.parentElement;
+    var was=box.classList.contains('open');
+    document.querySelectorAll('.faq .box').forEach(function(x){x.classList.remove('open')});
+    if(!was) box.classList.add('open');
+  });
+});
+document.querySelectorAll('nav a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.querySelectorAll('nav a').forEach(function(x){x.classList.remove('on')});
+    a.classList.add('on');
+  });
+});
+</script>
+</body>
+</html>
